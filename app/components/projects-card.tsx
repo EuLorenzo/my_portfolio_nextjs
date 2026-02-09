@@ -1,0 +1,110 @@
+import type { FC } from "react";
+import { ProjectType } from "../projects/projectType";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { libre_baskerville } from "./fonts";
+
+interface ProjectsCardProps {
+  project: ProjectType;
+}
+
+const cardVariants = {
+  initial: {},
+  hover: { backgroundColor: "rgba(0, 0, 0, 0.1)", outlineColor: "black" },
+};
+
+const paragraphVariants = {
+  initial: { opacity: 0, height: 0 },
+  hover: { opacity: 1, height: "auto" },
+};
+
+const skillsVariants = {
+  initial: { opacity: 0, height: 0 },
+  hover: { opacity: 1, height: "auto" },
+};
+
+const imageVariants = {
+  initial: {
+    y: 0,
+    rotate: 0,
+    scale: 1,
+  },
+
+  hover: {
+    y: [-4, 4, -4], // sobe e desce
+    rotate: [-1, 1, -1], // micro rotação],
+
+    transition: {
+      duration: 2.5,
+      repeat: Infinity,
+    },
+  },
+};
+
+const ProjectsCard: FC<ProjectsCardProps> = ({ project }) => {
+  const isRight = project.imagePosition === "right";
+
+  const imageContainer = (
+    <motion.div
+      variants={imageVariants}
+      className="flex justify-center items-center"
+    >
+      <Image
+        src={project.imagesSrc[0]}
+        alt="Project Image"
+        width={200}
+        height={200}
+      />
+    </motion.div>
+  );
+
+  return (
+    <motion.div
+      variants={cardVariants}
+      initial="initial"
+      whileHover="hover"
+      className="rounded-2xl outline flex flex-row justify-around h-112.5 p-5"
+    >
+      {!isRight && imageContainer}
+
+      <div className="w-1/2 flex flex-col justify-center items-start">
+        <h1 className={`${libre_baskerville.className} text-3xl font-bold`}>
+          {project.title}
+        </h1>
+
+        <motion.p variants={paragraphVariants}>{project.description}</motion.p>
+
+        <motion.div
+          variants={skillsVariants}
+          className="flex flex-row mt-5 gap-2 overflow-hidden"
+        >
+          <SkillSpan skill={project.skills[0]} />
+
+          <SkillSpan skill={project.skills[1]} />
+
+          <SkillSpan skill={project.skills[2]} />
+        </motion.div>
+      </div>
+
+      {isRight && imageContainer}
+    </motion.div>
+  );
+};
+
+const SkillSpan = ({ skill }: { skill: string }) => {
+  const skillVariant = {
+    initial: {},
+    hover: { outlineColor: "white" },
+  };
+
+  return (
+    <motion.span
+      variants={skillVariant}
+      className="bg-Myblue px-4 py-1 rounded-2xl text-white font-light outline"
+    >
+      {skill}
+    </motion.span>
+  );
+};
+
+export default ProjectsCard;
