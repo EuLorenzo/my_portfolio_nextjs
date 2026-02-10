@@ -38,10 +38,6 @@ const AboutContainer: FC<AboutContainerProps> = () => {
           />
         </div>
       </div>
-
-      {/*<div className="mt-10">
-        <GameContainer />
-      </div>*/}
     </div>
   );
 };

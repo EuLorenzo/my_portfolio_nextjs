@@ -1,25 +1,34 @@
+"use client";
+
 import { GameQuestion } from "@/app/helpers/game-question";
-import { useState, type FC } from "react";
+import { useMemo, useState, type FC } from "react";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 import { Label } from "../ui/label";
 import { Button } from "../ui/button";
 import { libre_baskerville, shantell_sans } from "../fonts";
+import { cn } from "@/lib/utils"; // (shadcn) se você tiver; se não tiver, eu te passo um fallback
+import GameQuestionsCard from "../game-questions-card";
 
 interface GameContainerProps {}
 
 const GameContainer: FC<GameContainerProps> = () => {
   const [questionNumber, setQuestionNumber] = useState(0);
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
-
+  const [selectedOption, setSelectedOption] = useState<string>("");
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
 
   const question = GameQuestion[questionNumber];
+  const total = GameQuestion.length;
+
+  const progress = useMemo(() => {
+    return Math.round(((questionNumber + 1) / total) * 100);
+  }, [questionNumber, total]);
 
   const verifyAnswer = () => {
+    // se já mostrou feedback, avança
     if (isCorrect !== null) {
-      setQuestionNumber(questionNumber + 1);
+      setQuestionNumber((prev) => prev + 1);
+      setSelectedOption("");
       setIsCorrect(null);
-
       return;
     }
 
@@ -27,65 +36,99 @@ const GameContainer: FC<GameContainerProps> = () => {
       (option) => option.label === selectedOption,
     );
 
-    if (selectedOptionObj?.correct === true) {
-      console.log("Cheguei linha 24");
-      setIsCorrect(true);
-    } else {
-      console.log("Cheguei linha 27");
-      setIsCorrect(false);
-    }
+    setIsCorrect(selectedOptionObj?.correct === true);
   };
 
+  const isLastQuestion = questionNumber >= total - 1;
+
   return (
-    <div className="w-225 m-auto">
-      <h1
-        className={`${libre_baskerville.className} text-2xl text-center font-normal`}
-      >
-        Quiz rápido!
-      </h1>
+    <div className="w-200 h-137.5 flex flex-col justify-center mx-auto rounded-2xl border bg-card shadow-sm backdrop-blur p-8 ">
+      <div className="space-y-2">
+        <h1
+          className={cn(
+            libre_baskerville.className,
+            "text-2xl text-center font-normal",
+          )}
+        >
+          Quiz rápido!
+        </h1>
 
-      {isCorrect !== null ? (
-        <div>
-          <h1>{isCorrect === true ? "Acertouuu !" : "Erroooouu !"}</h1>
+        <div className="flex items-center justify-between text-sm text-muted-foreground">
+          <span>
+            Pergunta {questionNumber + 1} de {total}
+          </span>
+          <span>{progress}%</span>
         </div>
-      ) : (
-        <div className="mt-5">
-          <p className="flex items-center gap-2">
-            <span
-              className={`${shantell_sans.className} text-white bg-Myblue rounded-full w-7.5 h-7.5 flex items-center justify-center`}
+
+        <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
+          <div
+            className="h-full rounded-full bg-Myblue transition-all"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+      </div>
+
+      {/* Body */}
+      <div className="mt-6">
+        {isCorrect !== null ? (
+          <div className="rounded-xl border p-5 text-center">
+            <p className={cn(shantell_sans.className, "text-lg")}>
+              {isCorrect ? "Acertouuu! 🎉" : "Erroooouu! 😅"}
+            </p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              {isCorrect
+                ? "Boa! Você mandou bem."
+                : "Sem problemas — próxima você acerta."}
+            </p>
+          </div>
+        ) : (
+          <>
+            {/* Question */}
+            <p className="flex items-center gap-3 text-base md:text-lg">
+              <span
+                className={cn(
+                  shantell_sans.className,
+                  "text-white bg-Myblue rounded-full w-8 h-8 flex items-center justify-center shrink-0",
+                )}
+              >
+                {questionNumber + 1}
+              </span>
+              <span className="font-semibold">{question.question}</span>
+            </p>
+
+            {/* Options */}
+            <RadioGroup
+              className="mt-6 grid gap-3"
+              value={selectedOption}
+              onValueChange={setSelectedOption}
             >
-              {questionNumber + 1}.
-            </span>{" "}
-            {question.question}
-          </p>
+              {question.options.map((opt, idx) => (
+                <GameQuestionsCard
+                  key={opt.label}
+                  value={opt.label}
+                  label={opt.label}
+                  selected={selectedOption === opt.label}
+                  index={idx}
+                />
+              ))}
+            </RadioGroup>
+          </>
+        )}
+      </div>
 
-          <RadioGroup
-            className="mt-5 flex flex-col gap-5"
-            onValueChange={(e) => setSelectedOption(e)}
-          >
-            <RadioGroupContainer label={question.options[0].label} />
-
-            <RadioGroupContainer label={question.options[1].label} />
-
-            <RadioGroupContainer label={question.options[2].label} />
-          </RadioGroup>
-        </div>
-      )}
-
-      <div className="flex justify-center mt-5">
-        <Button className="bg-Myblue text-white" onClick={() => verifyAnswer()}>
-          {isCorrect === null ? "Verificar resposta" : "Próxima pergunta"}
+      <div className="mt-6 flex justify-center">
+        <Button
+          className="bg-Myblue text-white w-full md:w-64"
+          onClick={verifyAnswer}
+          disabled={isCorrect === null && !selectedOption}
+        >
+          {isCorrect === null
+            ? "Verificar resposta"
+            : isLastQuestion
+              ? "Ver resultado"
+              : "Próxima pergunta →"}
         </Button>
       </div>
-    </div>
-  );
-};
-
-const RadioGroupContainer = ({ label }: { label: string }) => {
-  return (
-    <div className="flex items-center gap-2">
-      <RadioGroupItem value={label} />
-      <Label className="text-base">{label}</Label>{" "}
     </div>
   );
 };
