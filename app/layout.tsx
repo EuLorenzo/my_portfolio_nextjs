@@ -5,6 +5,7 @@ import { inter } from "./components/fonts";
 import Header from "./components/header";
 import { Toaster } from "./components/ui/sonner";
 import FooterContainer from "./components/containers/footer-container";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br" suppressHydrationWarning>
-      <body className={`${inter.className} antialiased h-screen`}>
+      <body className={cn(inter.className, `antialiased h-screen`)}>
         <Header />
         <Toaster position="top-center" />
         <ThemeProvider

@@ -3,6 +3,7 @@ import Tippy from "@tippyjs/react/headless";
 import "tippy.js/dist/tippy.css";
 import { followCursor, Placement } from "tippy.js/headless";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 type TooltipProps = {
   children: React.ReactNode;
@@ -35,7 +36,7 @@ export function Tooltip({
       render={(attrs) => (
         <div
           tabIndex={-1}
-          className={`overflow-hidden shadow-2xl shadow-black/50`}
+          className={cn(`overflow-hidden shadow-2xl shadow-black/50`)}
           style={{ borderRadius: rounded, width }}
           {...attrs}
         >

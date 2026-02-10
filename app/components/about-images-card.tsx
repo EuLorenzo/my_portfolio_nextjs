@@ -3,6 +3,7 @@ import type { FC } from "react";
 import { motion } from "framer-motion";
 import { shantell_sans } from "./fonts";
 import { floatingArray } from "../helpers/framer-floaters";
+import { cn } from "@/lib/utils";
 
 interface AboutImagesCardProps {
   imageSrc: string;
@@ -31,7 +32,7 @@ const AboutImagesCard: FC<AboutImagesCardProps> = ({ imageSrc, content }) => {
     >
       <Image src={imageSrc} alt="Imagem" width={200} height={200} />
       <motion.p
-        className={`${shantell_sans.className}`}
+        className={cn(shantell_sans.className)}
         variants={contentVariant}
       >
         {content}

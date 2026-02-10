@@ -2,11 +2,9 @@ import type { FC } from "react";
 import AboutContainer from "../components/containers/about-container";
 import GameContainer from "../components/containers/game-container";
 
-interface AboutProps {
-  propName: type;
-}
+interface AboutProps {}
 
-const About: FC<AboutProps> = ({ propName }) => {
+const About: FC<AboutProps> = () => {
   return (
     <div className="">
       <AboutContainer />

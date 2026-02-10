@@ -3,6 +3,7 @@ import type { FC } from "react";
 import { motion } from "framer-motion";
 import { Baskervville } from "next/font/google";
 import { libre_baskerville } from "./fonts";
+import { cn } from "@/lib/utils";
 
 interface AboutCardProps {}
 
@@ -23,9 +24,11 @@ const AboutCard: FC<AboutCardProps> = () => {
       </div>
 
       <motion.div className="outline rounded-lg px-2 py-5 w-100">
-        <h1 className={`${libre_baskerville.className} text-2xl font-medium`}>
+        <h1 className={cn(libre_baskerville.className, `text-2xl font-medium`)}>
           Lorenzo{" "}
-          <span className={`italic font-light ${libre_baskerville.className}`}>
+          <span
+            className={cn(libre_baskerville.className, `italic font-light`)}
+          >
             Frinhani
           </span>
         </h1>

@@ -8,6 +8,7 @@ import { ArrowDownToLine, Copy, IterationCcw, MoveRight } from "lucide-react";
 import { easeOut, motion } from "framer-motion";
 import { toast } from "sonner";
 import useClock from "@/app/hooks/useClock";
+import { cn } from "@/lib/utils";
 
 interface FooterContainerProps {}
 
@@ -33,7 +34,7 @@ const FooterContainer: FC<FooterContainerProps> = () => {
           <p className="text-sm">
             Obrigado pela visita... Espero que tenha gostado!
           </p>
-          <h1 className={`${libre_baskerville.className} text-3xl`}>
+          <h1 className={cn(libre_baskerville.className, `text-3xl`)}>
             Se isso te assusta, pode ser uma boa coisa para tentar.
           </h1>
 
@@ -46,7 +47,7 @@ const FooterContainer: FC<FooterContainerProps> = () => {
               <MoveRight />
             </motion.div>
             <a
-              className={`${libre_baskerville.className} text-2xl`}
+              className={cn(libre_baskerville.className, `text-2xl`)}
               href={mailtoLink(email)}
               target="_blank"
             >

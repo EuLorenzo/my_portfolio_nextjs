@@ -3,6 +3,7 @@ import { ProjectType } from "../projects/projectType";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { libre_baskerville } from "./fonts";
+import { cn } from "@/lib/utils";
 
 interface ProjectsCardProps {
   project: ProjectType;
@@ -68,7 +69,7 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ project }) => {
       {!isRight && imageContainer}
 
       <div className="w-1/2 flex flex-col justify-center items-start">
-        <h1 className={`${libre_baskerville.className} text-3xl font-bold`}>
+        <h1 className={cn(libre_baskerville.className, `text-3xl font-bold`)}>
           {project.title}
         </h1>
 

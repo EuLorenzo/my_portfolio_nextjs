@@ -2,6 +2,7 @@ import type { FC } from "react";
 import { motion } from "motion/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 interface HeaderLinkProps {
   href: string;
@@ -27,8 +28,10 @@ const HeaderLink: FC<HeaderLinkProps> = ({ href, label }) => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: pathname === href ? 1 : 0 }}
-        className="w-1 h-1 bg-gray-400 rounded-full m-auto hover:bg-Myblue transition-colors"
-        style={{ display: pathname === href ? "block" : "none" }}
+        className={cn(
+          pathname === href ? "block" : "none",
+          "w-1 h-1 bg-gray-400 rounded-full m-auto hover:bg-Myblue transition-colors",
+        )}
       ></motion.div>
     </div>
   );
