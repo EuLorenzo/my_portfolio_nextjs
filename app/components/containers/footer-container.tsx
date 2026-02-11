@@ -1,16 +1,14 @@
 "use client";
 
-import { useState, type FC } from "react";
 import { Button } from "../ui/button";
 import { libre_baskerville } from "../fonts";
 import Image from "next/image";
-import { ArrowDownToLine, Copy, IterationCcw, MoveRight } from "lucide-react";
-import { easeOut, motion } from "framer-motion";
+import { ArrowDownToLine, Copy, MoveRight } from "lucide-react";
+import { motion } from "framer-motion";
 import { toast } from "sonner";
 import useClock from "@/app/hooks/useClock";
 import { cn } from "@/lib/utils";
-
-interface FooterContainerProps {}
+import Link from "next/link";
 
 const emailArrowVariant = {
   initial: { opacity: 1, width: 1, x: -25 },
@@ -22,10 +20,15 @@ const emailArrowVariant = {
   },
 };
 
-const FooterContainer: FC<FooterContainerProps> = () => {
+const FooterContainer = () => {
   const { getDate, getTime } = useClock();
 
   const email = "lorenzo.frinhani@gmail.com";
+
+  const openResume = () => {
+    console.log("RODOU");
+    window.open("/resume/LorenzoFrinhani_Curriculo.pdf");
+  };
 
   return (
     <div className="border-t border-t-gray-400 bg-gray-300">
@@ -39,7 +42,7 @@ const FooterContainer: FC<FooterContainerProps> = () => {
           </h1>
 
           <motion.div
-            className="flex gap-1 items-center overflow-hidden"
+            className="flex gap-1 items-center overflow-hidden w-min"
             initial="initial"
             whileHover={"hover"}
           >
@@ -67,18 +70,23 @@ const FooterContainer: FC<FooterContainerProps> = () => {
             >
               Copiar Email <Copy />
             </Button>
-            <Button variant={"footer_button"}>
+            <Button variant={"footer_button"} onClick={() => openResume()}>
               Currículo <ArrowDownToLine />
             </Button>
-            <Button variant={"footer_button"}>
-              LinkedIn{" "}
-              <Image
-                src={"/linkedin.png"}
-                alt="LinkedIn Icon"
-                width={24}
-                height={24}
-              />
-            </Button>
+            <Link
+              href={"https://www.linkedin.com/in/lorenzofrinhani/"}
+              target="_blank"
+            >
+              <Button variant={"footer_button"}>
+                LinkedIn{" "}
+                <Image
+                  src={"/linkedin.png"}
+                  alt="LinkedIn Icon"
+                  width={24}
+                  height={24}
+                />
+              </Button>
+            </Link>
           </div>
 
           <div className="w-49 flex flex-col items-end">
