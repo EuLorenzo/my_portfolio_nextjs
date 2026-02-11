@@ -81,7 +81,7 @@ const FooterContainer: FC<FooterContainerProps> = () => {
             </Button>
           </div>
 
-          <div className="w-43">
+          <div className="w-49 flex flex-col items-end">
             <p>São Paulo, SP</p>
             <p>
               {getDate()} - {getTime()}
@@ -90,7 +90,10 @@ const FooterContainer: FC<FooterContainerProps> = () => {
         </div>
       </div>
 
-      <div className="border-t border-t-gray-400 bg-[#DFDDDF] text-center py-7">
+      <div
+        id="contato-footer"
+        className="border-t border-t-gray-400 bg-[#DFDDDF] text-center py-7"
+      >
         <p className="font-light">Copyright © Lorenzo Frinhani 2026</p>
       </div>
     </div>

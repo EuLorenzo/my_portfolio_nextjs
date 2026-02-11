@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { inter } from "./components/fonts";
-import Header from "./components/header";
+import Header from "./components/header-content";
 import { Toaster } from "./components/ui/sonner";
 import FooterContainer from "./components/containers/footer-container";
 import { cn } from "@/lib/utils";
+import HeaderContainer from "./components/containers/header-container";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,8 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br" suppressHydrationWarning>
-      <body className={cn(inter.className, `antialiased h-screen`)}>
-        <Header />
+      <body
+        className={cn(inter.className, `antialiased h-screen scroll-smooth`)}
+      >
         <Toaster position="top-center" />
         <ThemeProvider
           attribute="class"
@@ -28,11 +30,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <HeaderContainer />
           {children}
+          <div className="mt-20">
+            <FooterContainer />
+          </div>
         </ThemeProvider>
-        <div className="mt-20">
-          <FooterContainer />
-        </div>
       </body>
     </html>
   );
