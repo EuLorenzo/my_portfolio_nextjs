@@ -10,8 +10,11 @@ interface AboutContainerProps {}
 
 const AboutContainer: FC<AboutContainerProps> = () => {
   return (
-    <div>
-      <div className="flex flex-row justify-evenly">
+    <div
+      className="flex items-center justify-center w-full"
+      style={{ minHeight: "calc(100vh - 112px)" }}
+    >
+      <div className="flex flex-row justify-evenly w-full">
         <div className="flex flex-col justify-around">
           <AboutImagesCard
             imageSrc="/lorenzo/guitar.png"

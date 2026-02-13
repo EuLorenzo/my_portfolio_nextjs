@@ -26,7 +26,6 @@ const FooterContainer = () => {
   const email = "lorenzo.frinhani@gmail.com";
 
   const openResume = () => {
-    console.log("RODOU");
     window.open("/resume/LorenzoFrinhani_Curriculo.pdf");
   };
 
