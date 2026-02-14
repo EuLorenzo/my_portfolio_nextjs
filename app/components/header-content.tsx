@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "./ui/button";
-import { House } from "lucide-react";
+import { House, Menu } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import HeaderLink from "./header-link";
 import { cn } from "@/lib/utils";
@@ -28,24 +28,33 @@ const HeaderContent = () => {
   };
 
   return (
-    <div className="flex flex-row justify-between h-28 items-center w-225 m-auto">
+    <div
+      className={cn(
+        "max-w-225 px-6 h-15 bg-Myblue outline outline-Mydark-blue mx-5 text-Mydark-blue",
+        "flex flex-row justify-between items-center rounded-full",
+        "sm:px-0 sm:h-28 sm:outline-none sm:mx-0 sm:bg-MyPapaya sm:text-black",
+      )}
+    >
       <div className="h-4">
-        <House
-          color={"black"}
-          className="cursor-pointer"
-          onClick={() => router.push("/")}
-        />
+        <House className="cursor-pointer" onClick={() => router.push("/")} />
       </div>
 
-      <div className="flex flex-row gap-6 h-4">
+      <div className={cn("hidden", "sm:flex flex-row gap-6 h-4")}>
         {links.map((link) => (
           <HeaderLink key={link.href} href={link.href} label={link.label} />
         ))}
       </div>
 
-      <Button onClick={handleContactClick} className={cn("rounded-full")}>
-        Contato
-      </Button>
+      <div>
+        <Menu className={cn("", "sm:hidden")} />
+
+        <Button
+          onClick={handleContactClick}
+          className={cn("hidden rounded-full", "sm:block")}
+        >
+          Contato
+        </Button>
+      </div>
     </div>
   );
 };
