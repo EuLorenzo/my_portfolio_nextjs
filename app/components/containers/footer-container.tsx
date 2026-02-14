@@ -30,8 +30,8 @@ const FooterContainer = () => {
   };
 
   return (
-    <div className="border-t border-t-gray-400 bg-gray-300">
-      <div className="w-225 m-auto pt-20 pb-20">
+    <div className="p-2 border-t border-t-gray-400 bg-gray-300">
+      <div className="max-w-225 m-auto pt-20 pb-20">
         <div className="flex flex-col gap-5 mb-5">
           <p className="text-sm">
             Obrigado pela visita... Espero que tenha gostado!
@@ -58,7 +58,12 @@ const FooterContainer = () => {
           </motion.div>
         </div>
 
-        <div className="flex justify-between items-center w-full">
+        <div
+          className={cn(
+            "flex flex-col items-start w-full gap-5",
+            "sm:flex-row sm:justify-between sm:items-center",
+          )}
+        >
           <div className="flex gap-5">
             <Button
               variant={"footer_button"}
@@ -88,7 +93,7 @@ const FooterContainer = () => {
             </Link>
           </div>
 
-          <div className="w-49 flex flex-col items-end">
+          <div className="w-49 flex flex-col items-start">
             <p>São Paulo, SP</p>
             <p>
               {getDate()} - {getTime()}

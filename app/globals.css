@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@theme {
+    --breakpoint-sm: 715px;
+}
+
 @theme inline {
     --color-MyPapaya: var(--MyPapaya);
     --color-Myred: var(--Myred);
