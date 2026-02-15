@@ -18,6 +18,8 @@ const About: FC<AboutProps> = () => {
     <div className="">
       <motion.div
         className={cn(
+          "mt-10",
+          "sm:mt-0",
           opacity.get() === 0 ? "pointer-events-none" : "pointer-events-auto",
         )}
         style={{
@@ -25,7 +27,6 @@ const About: FC<AboutProps> = () => {
           position: "sticky",
           opacity,
           top: 0,
-          zIndex: 10,
         }}
       >
         <AboutContainer />

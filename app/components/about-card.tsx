@@ -1,7 +1,6 @@
 import Image from "next/image";
 import type { FC } from "react";
 import { motion } from "framer-motion";
-import { Baskervville } from "next/font/google";
 import { libre_baskerville } from "./fonts";
 import { cn } from "@/lib/utils";
 
@@ -12,9 +11,17 @@ const AboutCard: FC<AboutCardProps> = () => {
     <motion.div
       initial="initial"
       whileHover={"hover"}
-      className="flex flex-row outline outline-black rounded-lg justify-between p-5 w-220"
+      className={cn(
+        "justify-center",
+        "sm:justify-between flex flex-row outline outline-black rounded-lg p-5 w-220 mx-5",
+      )}
     >
-      <div className="rounded-lg overflow-hidden bg-amber-50">
+      <div
+        className={cn(
+          "hidden",
+          "sm:block rounded-lg overflow-hidden bg-amber-50",
+        )}
+      >
         <Image
           src="/lorenzo/main.jpg"
           alt="Imagem do Lorenzo"
@@ -23,7 +30,9 @@ const AboutCard: FC<AboutCardProps> = () => {
         />
       </div>
 
-      <motion.div className="outline rounded-lg px-2 py-5 w-100">
+      <motion.div
+        className={cn("w-full", "outline rounded-lg px-2 py-5 sm:w-100")}
+      >
         <h1 className={cn(libre_baskerville.className, `text-2xl font-medium`)}>
           Lorenzo{" "}
           <span

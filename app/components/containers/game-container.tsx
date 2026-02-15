@@ -42,7 +42,12 @@ const GameContainer: FC<GameContainerProps> = () => {
   const isLastQuestion = questionNumber >= total - 1;
 
   return (
-    <div className="w-200 h-137.5 flex flex-col justify-center mx-auto rounded-2xl border bg-card shadow-sm backdrop-blur p-8">
+    <div
+      className={cn(
+        "mx-5",
+        "sm:mx-auto w-200 h-137.5 flex flex-col justify-center rounded-2xl border bg-card shadow-sm backdrop-blur p-8",
+      )}
+    >
       <div className="space-y-2">
         <h1
           className={cn(
