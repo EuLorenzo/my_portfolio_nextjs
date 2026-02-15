@@ -1,11 +1,14 @@
 import type { FC } from "react";
 import { Tooltip } from "../tooltip";
+import { cn } from "@/lib/utils";
 
 interface LandPageContainerProps {}
 
 const LandPageContainer: FC<LandPageContainerProps> = ({}) => {
   return (
-    <div className={"flex text-4xl text-Mydark-blue w-full"}>
+    <div
+      className={cn("flex text-4xl text-Mydark-blue w-full px-5", "sm:px-0")}
+    >
       <div className="flex flex-col text-4xl gap-4 margin-auto">
         <h1>
           Olá, como vai? Eu sou o{" "}

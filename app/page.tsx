@@ -23,12 +23,12 @@ export default function Home() {
 
   return (
     <div>
-      <div className="w-225 m-auto">
+      <div className="max-w-225 m-auto">
         <div className="mt-20">
           <LandPageContainer />
         </div>
 
-        <div className="mt-20 ">
+        <div className="mt-20">
           <ProjectsContainer howManyItems={3} />
         </div>
       </div>

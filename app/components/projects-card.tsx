@@ -48,7 +48,7 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ project }) => {
   const imageContainer = (
     <motion.div
       variants={imageVariants}
-      className="flex justify-center items-center"
+      className={cn("hidden", "sm:flex justify-center items-center")}
     >
       <Image
         src={project.imagesSrc[0]}
@@ -64,20 +64,36 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ project }) => {
       variants={cardVariants}
       initial="initial"
       whileHover="hover"
-      className="rounded-2xl outline flex flex-row justify-around h-112.5 p-5"
+      className={cn(
+        "",
+        "sm:h-112.5 rounded-2xl outline flex flex-row justify-around  p-5",
+      )}
     >
       {!isRight && imageContainer}
 
-      <div className="w-1/2 flex flex-col justify-center items-start">
-        <h1 className={cn(libre_baskerville.className, `text-3xl font-bold`)}>
+      <div
+        className={cn(
+          "w-full items-center",
+          "sm:w-1/2 sm:items-start flex flex-col justify-center ",
+        )}
+      >
+        <h1 className={cn(libre_baskerville.className, `text-3xl font-bold `)}>
           {project.title}
         </h1>
 
-        <motion.p variants={paragraphVariants}>{project.description}</motion.p>
+        <motion.p
+          className={cn("hidden", "sm:block")}
+          variants={paragraphVariants}
+        >
+          {project.description}
+        </motion.p>
 
         <motion.div
           variants={skillsVariants}
-          className="flex flex-row mt-5 gap-2 overflow-hidden"
+          className={cn(
+            "hidden",
+            "sm:flex flex-row mt-5 gap-2 overflow-hidden",
+          )}
         >
           <SkillSpan skill={project.skills[0]} />
 
