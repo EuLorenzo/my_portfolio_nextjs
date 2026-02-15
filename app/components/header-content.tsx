@@ -6,6 +6,9 @@ import { usePathname, useRouter } from "next/navigation";
 import HeaderLink from "./header-link";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import HeaderContainer from "./containers/header-container";
+import { useState } from "react";
+import HeaderCommand from "./header-command";
 
 const links = [
   { href: "/projects", label: "Projetos" },
@@ -14,6 +17,8 @@ const links = [
 ];
 
 const HeaderContent = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const router = useRouter();
   const pathname = usePathname();
 
@@ -30,9 +35,9 @@ const HeaderContent = () => {
   return (
     <div
       className={cn(
-        "max-w-225 px-6 h-15 bg-Myblue outline outline-Mydark-blue mx-5 text-Mydark-blue",
+        "max-w-225 px-6 h-15 bg-Mydark-blue outline mx-5 text-white",
         "flex flex-row justify-between items-center rounded-full",
-        "sm:px-0 sm:h-28 sm:outline-none sm:mx-0 sm:bg-MyPapaya sm:text-black",
+        "sm:px-0 sm:h-28 sm:outline-none sm:mx-0 sm:bg-MyPapaya sm:text-black sm:w-full",
       )}
     >
       <div className="h-4">
@@ -46,7 +51,10 @@ const HeaderContent = () => {
       </div>
 
       <div>
-        <Menu className={cn("", "sm:hidden")} />
+        <Menu
+          className={cn("", "sm:hidden")}
+          onClick={() => setIsOpen(!isOpen)}
+        />
 
         <Button
           onClick={handleContactClick}
@@ -54,6 +62,8 @@ const HeaderContent = () => {
         >
           Contato
         </Button>
+
+        <HeaderCommand isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
     </div>
   );

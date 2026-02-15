@@ -25,7 +25,7 @@ const HeaderContainer: FC<HeaderContainerProps> = () => {
       <div
         id="contato"
         className={cn(
-          "fixed top-5 w-full max-w-225 m-auto",
+          "fixed top-5 w-full max-w-225 m-auto z-50",
           "sm:relative sm:top-0",
           "transition-opacity",
           isFloating ? "opacity-0" : "opacity-100",
