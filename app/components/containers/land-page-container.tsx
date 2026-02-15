@@ -7,9 +7,13 @@ interface LandPageContainerProps {}
 const LandPageContainer: FC<LandPageContainerProps> = ({}) => {
   return (
     <div
-      className={cn("flex text-4xl text-Mydark-blue w-full px-5", "sm:px-0")}
+      className={cn(
+        "flex text-4xl text-Mydark-blue w-full px-5",
+        "",
+        "md:px-0",
+      )}
     >
-      <div className="flex flex-col text-4xl gap-4 margin-auto">
+      <div className="flex flex-col text-4xl gap-4 margin-auto leading-11">
         <h1>
           Olá, como vai? Eu sou o{" "}
           <Tooltip imageSrc="/lorenzo/main.jpg" placement="right-start">
