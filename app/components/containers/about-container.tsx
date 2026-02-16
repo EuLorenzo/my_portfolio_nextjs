@@ -6,6 +6,7 @@ import AboutCard from "../about-card";
 import AboutImagesCard from "../about-images-card";
 import GameContainer from "./game-container";
 import { cn } from "@/lib/utils";
+import { AboutCuriosities } from "@/app/helpers/about-curiosities";
 
 interface AboutContainerProps {}
 
@@ -13,36 +14,32 @@ const AboutContainer: FC<AboutContainerProps> = () => {
   return (
     <div
       className={cn(
-        "items-start",
-        "flex sm:items-center justify-center w-full",
+        "flex items-start justify-center w-full h-[calc(100vh-200px)]",
+        "mb1:h-[calc(100vh-300px)]",
+        "sm:items-center sm:h-[calc(100vh-112px)]",
       )}
-      style={{ minHeight: "calc(100vh - 112px)" }}
     >
       <div className="flex flex-row justify-evenly w-full">
-        <div className={cn("hidden", "sm:flex flex-col justify-around")}>
-          <AboutImagesCard
-            imageSrc="/lorenzo/guitar.png"
-            content="Eu toco violão há 3 anos."
-          />
-
-          <AboutImagesCard
-            imageSrc="/lorenzo/basketball.png"
-            content="Jordan melhor que Lebron!"
-          />
+        <div className={cn("hidden justify-around flex-col", "sm:flex")}>
+          {AboutCuriosities.slice(0, 2).map((curiosity, index) => (
+            <AboutImagesCard
+              key={index}
+              imageSrc={curiosity.imageUrl}
+              content={curiosity.curiosity}
+            />
+          ))}
         </div>
 
         <AboutCard />
 
-        <div className={cn("hidden", "sm:flex flex-col justify-around")}>
-          <AboutImagesCard
-            imageSrc="/lorenzo/gilberto.png"
-            content="Meu álbum favorito."
-          />
-
-          <AboutImagesCard
-            imageSrc="/lorenzo/glove.png"
-            content="Luto há mais de 1 ano."
-          />
+        <div className={cn("hidden flex-col justify-around", "sm:flex")}>
+          {AboutCuriosities.slice(2, 4).map((curiosity, index) => (
+            <AboutImagesCard
+              key={index}
+              imageSrc={curiosity.imageUrl}
+              content={curiosity.curiosity}
+            />
+          ))}
         </div>
       </div>
     </div>

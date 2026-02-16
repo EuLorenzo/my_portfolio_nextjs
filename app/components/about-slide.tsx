@@ -9,8 +9,6 @@ import { cn } from "@/lib/utils";
 import { shantell_sans } from "@/app/components/fonts";
 
 const AboutSlider: FC = () => {
-  const [hover, setHover] = useState(false);
-
   return (
     <Marquee speed={60} gradient={false}>
       <div className="flex gap-6 py-4">
@@ -28,8 +26,8 @@ const AboutSlider: FC = () => {
               <Image
                 src={content.imageUrl}
                 alt={content.curiosity}
-                width={150}
-                height={150}
+                width={100}
+                height={100}
               />
             </motion.div>
 

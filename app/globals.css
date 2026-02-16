@@ -2,6 +2,7 @@
 @import "tw-animate-css";
 
 @theme {
+    --breakpoint-mb1: 600px;
     --breakpoint-sm: 715px;
     --breakpoint-md: 900px;
 }

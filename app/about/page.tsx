@@ -6,6 +6,7 @@ import GameContainer from "../components/containers/game-container";
 import { useMotionValueEvent, useScroll } from "motion/react";
 import { motion, useTransform } from "framer-motion";
 import { cn } from "@/lib/utils";
+import AboutSlider from "../components/about-slide";
 
 interface AboutProps {}
 
@@ -18,12 +19,13 @@ const About: FC<AboutProps> = () => {
     <div className="">
       <motion.div
         className={cn(
-          "mt-10",
-          "sm:mt-0",
+          "mt-10 h-[calc(100vh-275px)]",
+          "mb1:h-[calc(100vh-300px)]",
+          "sm:mt-0 sm:h-[calc(100vh-112px)]",
           opacity.get() === 0 ? "pointer-events-none" : "pointer-events-auto",
         )}
         style={{
-          minHeight: "calc(100vh - 112px)",
+          minHeight: "",
           position: "sticky",
           opacity,
           top: 0,
@@ -32,9 +34,15 @@ const About: FC<AboutProps> = () => {
         <AboutContainer />
       </motion.div>
 
+      <div className={cn("sm:hidden")}>
+        <AboutSlider />
+      </div>
+
       <motion.div
-        className={cn("flex items-center justify-center")}
-        style={{ minHeight: "calc(100vh - 112px)" }}
+        className={cn(
+          "flex items-start justify-center pt-10 h-[calc(100vh-275px)]",
+          "sm:h-[calc(100vh-112px)]",
+        )}
       >
         <GameContainer />
       </motion.div>
