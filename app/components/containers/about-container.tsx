@@ -2,11 +2,13 @@
 
 import Image from "next/image";
 import type { FC } from "react";
-import AboutCard from "../about-card";
-import AboutImagesCard from "../about-images-card";
+import AboutCard from "../about/about-card";
 import GameContainer from "./game-container";
 import { cn } from "@/lib/utils";
 import { AboutCuriosities } from "@/app/helpers/about-curiosities";
+import ManualSlider from "../ManualSlider";
+import AboutImageCard from "../about/about-image-card";
+import AboutCuriositiesCard from "../about/about-curiosities-card";
 
 interface AboutContainerProps {}
 
@@ -19,10 +21,10 @@ const AboutContainer: FC<AboutContainerProps> = () => {
         "sm:items-center sm:h-[calc(100vh-112px)]",
       )}
     >
-      <div className="flex flex-row justify-evenly w-full">
-        <div className={cn("hidden justify-around flex-col", "sm:flex")}>
+      <div className={cn("flex flex-row justify-evenly w-full")}>
+        <div className={cn("hidden justify-around flex-col", "lg:flex")}>
           {AboutCuriosities.slice(0, 2).map((curiosity, index) => (
-            <AboutImagesCard
+            <AboutCuriositiesCard
               key={index}
               imageSrc={curiosity.imageUrl}
               content={curiosity.curiosity}
@@ -32,9 +34,9 @@ const AboutContainer: FC<AboutContainerProps> = () => {
 
         <AboutCard />
 
-        <div className={cn("hidden flex-col justify-around", "sm:flex")}>
+        <div className={cn("hidden flex-col justify-around", "lg:flex")}>
           {AboutCuriosities.slice(2, 4).map((curiosity, index) => (
-            <AboutImagesCard
+            <AboutCuriositiesCard
               key={index}
               imageSrc={curiosity.imageUrl}
               content={curiosity.curiosity}

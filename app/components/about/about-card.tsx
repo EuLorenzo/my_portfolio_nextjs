@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { FC } from "react";
 import { motion } from "framer-motion";
-import { libre_baskerville } from "./fonts";
+import { libre_baskerville } from "../fonts";
 import { cn } from "@/lib/utils";
 
 interface AboutCardProps {}
@@ -19,7 +19,7 @@ const AboutCard: FC<AboutCardProps> = () => {
       <div
         className={cn(
           "hidden",
-          "sm:block rounded-lg overflow-hidden bg-amber-50",
+          "sm:block sm:w-[200px] rounded-lg overflow-hidden bg-amber-50",
         )}
       >
         <Image

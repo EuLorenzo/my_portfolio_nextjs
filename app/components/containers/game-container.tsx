@@ -7,7 +7,7 @@ import { Label } from "../ui/label";
 import { Button } from "../ui/button";
 import { libre_baskerville, shantell_sans } from "../fonts";
 import { cn } from "@/lib/utils"; // (shadcn) se você tiver; se não tiver, eu te passo um fallback
-import GameQuestionsCard from "../game-questions-card";
+import GameQuestionsCard from "../about/game-questions-card";
 
 interface GameContainerProps {}
 

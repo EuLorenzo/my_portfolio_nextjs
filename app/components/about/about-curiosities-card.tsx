@@ -1,11 +1,11 @@
 import Image from "next/image";
 import type { FC } from "react";
 import { motion } from "framer-motion";
-import { shantell_sans } from "./fonts";
-import { floatingArray } from "../helpers/framer-floaters";
+import { shantell_sans } from "../fonts";
+import { floatingArray } from "../../helpers/framer-floaters";
 import { cn } from "@/lib/utils";
 
-interface AboutImagesCardProps {
+interface AboutCuriositiesCardProps {
   imageSrc: string;
   content: string;
 }
@@ -19,7 +19,10 @@ const containerVariant = {
   hover: { scale: 1.1 },
 };
 
-const AboutImagesCard: FC<AboutImagesCardProps> = ({ imageSrc, content }) => {
+const AboutCuriositiesCard: FC<AboutCuriositiesCardProps> = ({
+  imageSrc,
+  content,
+}) => {
   const floatVariant = floatingArray[returnRandomNumber()];
 
   return (
@@ -47,4 +50,4 @@ const returnRandomNumber = () => {
   return randomNumber;
 };
 
-export default AboutImagesCard;
+export default AboutCuriositiesCard;
