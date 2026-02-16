@@ -46,6 +46,12 @@ export const floatBreathing = {
   },
 };
 
+export const returnRandomNumber = () => {
+  const randomNumber = Math.floor(Math.random() * 4);
+
+  return randomNumber;
+};
+
 export const floatingArray = [
   floatClassic,
   floatRotate,
