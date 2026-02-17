@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import HeaderContent from "../header-content";
 
@@ -10,11 +10,10 @@ const HeaderContainer = () => {
 
   const [floating, setFloating] = useState(false);
 
-  //const isFloating = window.innerWidth > 715 && floating;
-
   useMotionValueEvent(scrollY, "change", (latest) => {
     const shouldFloat = latest > 80;
-    setFloating(shouldFloat);
+    const isFloating = shouldFloat && window.innerWidth > 715;
+    setFloating(isFloating);
   });
 
   return (
@@ -25,7 +24,7 @@ const HeaderContainer = () => {
           "fixed top-5 w-full max-w-225 m-auto z-50",
           "sm:relative sm:top-0",
           "transition-opacity",
-          //isFloating ? "opacity-0" : "opacity-100",
+          floating ? "opacity-0" : "opacity-100",
         )}
       >
         <HeaderContent />
@@ -35,7 +34,7 @@ const HeaderContainer = () => {
 
       <motion.div
         initial={false}
-        //animate={isFloating ? "show" : "hide"}
+        animate={floating ? "show" : "hide"}
         variants={{
           show: { y: 0, opacity: 1, pointerEvents: "auto" },
           hide: { y: -20, opacity: 0, pointerEvents: "none" },

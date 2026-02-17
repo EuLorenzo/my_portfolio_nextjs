@@ -48,11 +48,15 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ project }) => {
   const imageContainer = (
     <motion.div
       variants={imageVariants}
-      className={cn("hidden", "sm:flex justify-center items-center")}
+      className={cn(
+        "hidden",
+        "sm:flex justify-center items-center w-auto h-auto",
+      )}
     >
       <Image
         src={project.imagesSrc[0]}
         alt="Project Image"
+        loading="eager"
         width={200}
         height={200}
       />
