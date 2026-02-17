@@ -19,31 +19,23 @@ const About: FC<AboutProps> = () => {
     <div className="">
       <motion.div
         className={cn(
-          "mt-10 h-[calc(100vh-275px)]",
-          "mb1:h-[calc(100vh-350px)]",
-          "sm:mt-0 sm:h-[calc(100vh-112px)]",
+          "block bg-gray-100 sm:bg-red-100",
           opacity.get() === 0 ? "pointer-events-none" : "pointer-events-auto",
         )}
         style={{
+          //opacity,
           minHeight: "",
-          position: "sticky",
-          opacity,
           top: 0,
         }}
       >
         <AboutContainer />
       </motion.div>
 
-      <div className={cn("sm:hidden")}>
+      <div className={cn("mt-20 mb-20")}>
         <AboutSlider />
       </div>
 
-      <motion.div
-        className={cn(
-          "flex items-start justify-center pt-10 h-[calc(100vh-275px)]",
-          "sm:h-[calc(100vh-112px)]",
-        )}
-      >
+      <motion.div className={cn("h-170")}>
         <GameContainer />
       </motion.div>
     </div>

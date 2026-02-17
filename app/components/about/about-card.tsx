@@ -11,17 +11,9 @@ const AboutCard: FC<AboutCardProps> = () => {
     <motion.div
       initial="initial"
       whileHover={"hover"}
-      className={cn(
-        "bg-green-100 sm:bg-red-100 md: md:bg-blue-100",
-        "flex flex-row justify-between max-w-220 mx-5 outline outline-black gap-5 rounded-lg p-5",
-      )}
+      className={cn("outline outline-black rounded-lg p-5")}
     >
-      <div
-        className={cn(
-          "hidden",
-          "sm:flex max-w-100 justify-center items-center rounded-lg overflow-hidden bg-[#0B0B09]",
-        )}
-      >
+      <div className={cn("hidden")}>
         <Image
           src="/lorenzo/main.jpg"
           alt="Imagem do Lorenzo"
@@ -30,9 +22,7 @@ const AboutCard: FC<AboutCardProps> = () => {
         />
       </div>
 
-      <motion.div
-        className={cn("w-full", "outline rounded-lg px-2 py-5 sm:w-100")}
-      >
+      <motion.div className={cn("w-full", "outline rounded-lg px-2 py-5")}>
         <h1 className={cn(libre_baskerville.className, `text-2xl font-medium`)}>
           Lorenzo{" "}
           <span
