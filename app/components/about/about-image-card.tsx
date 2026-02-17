@@ -1,11 +1,8 @@
 import { cn } from "@/lib/utils";
-import type { FC } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-interface AboutImageCardProps {}
-
-const AboutImageCard: FC<AboutImageCardProps> = () => {
+const AboutImageCard = () => {
   return (
     <motion.div
       initial="initial"

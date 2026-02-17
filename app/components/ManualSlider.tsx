@@ -2,17 +2,13 @@
 
 import type { FC, ReactNode } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useCallback } from "react";
-import { cn } from "@/lib/utils";
-import AboutCard from "./about/about-card";
 
 interface ManualSliderProps {
   slides: ReactNode[];
   className?: string;
 }
 
-const ManualSlider: FC<ManualSliderProps> = ({ slides, className }) => {
+const ManualSlider: FC<ManualSliderProps> = ({ slides }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel();
 
   //const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);

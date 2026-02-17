@@ -5,8 +5,6 @@ import { House, Menu } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import HeaderLink from "./header-link";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
-import HeaderContainer from "./containers/header-container";
 import { useState } from "react";
 import HeaderCommand from "./header-command";
 

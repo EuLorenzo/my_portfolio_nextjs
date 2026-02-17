@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, type FC } from "react";
 import Marquee from "react-fast-marquee";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -8,7 +7,7 @@ import { AboutCuriosities } from "../../helpers/about-curiosities";
 import { cn } from "@/lib/utils";
 import { shantell_sans } from "@/app/components/fonts";
 
-const AboutSlider: FC = () => {
+const AboutSlider = () => {
   return (
     <Marquee speed={60} gradient={false}>
       <div className="flex gap-6 py-4">

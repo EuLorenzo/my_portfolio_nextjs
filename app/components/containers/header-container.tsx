@@ -1,14 +1,11 @@
 "use client";
 
-import type { FC } from "react";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import HeaderContent from "../header-content";
 
-interface HeaderContainerProps {}
-
-const HeaderContainer: FC<HeaderContainerProps> = () => {
+const HeaderContainer = () => {
   const { scrollY } = useScroll();
 
   const [floating, setFloating] = useState(false);

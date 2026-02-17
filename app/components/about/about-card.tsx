@@ -1,13 +1,9 @@
 import Image from "next/image";
-import type { FC } from "react";
 import { motion } from "framer-motion";
-import { Baskervville } from "next/font/google";
 import { libre_baskerville } from "../fonts";
 import { cn } from "@/lib/utils";
 
-interface AboutCardProps {}
-
-const AboutCard: FC<AboutCardProps> = () => {
+const AboutCard = () => {
   return (
     <motion.div
       initial="initial"

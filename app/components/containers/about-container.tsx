@@ -1,18 +1,13 @@
 "use client";
 
-import Image from "next/image";
-import type { FC } from "react";
 import GameContainer from "./game-container";
 import AboutCuriositiesCard from "../about/about-curiosities-card";
 import AboutCard from "../about/about-card";
 import { cn } from "@/lib/utils";
-import AboutSlider from "../about/about-slide";
 import ManualSlider from "../ManualSlider";
 import AboutImageCard from "../about/about-image-card";
 
-interface AboutContainerProps {}
-
-const AboutContainer: FC<AboutContainerProps> = () => {
+const AboutContainer = () => {
   return (
     <div>
       <div className="flex flex-row justify-evenly">

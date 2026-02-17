@@ -1,10 +1,7 @@
-import type { FC } from "react";
 import { Tooltip } from "../tooltip";
 import { cn } from "@/lib/utils";
 
-interface LandPageContainerProps {}
-
-const LandPageContainer: FC<LandPageContainerProps> = ({}) => {
+const LandPageContainer = () => {
   return (
     <div
       className={cn(

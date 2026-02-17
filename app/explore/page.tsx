@@ -1,10 +1,4 @@
-import type { FC } from "react";
-
-interface ExploreProps {
-  propName: type;
-}
-
-const Explore: FC<ExploreProps> = ({ propName }) => {
+const Explore = () => {
   return <div></div>;
 };
 

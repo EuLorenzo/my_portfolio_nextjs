@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import { libre_baskerville } from "../fonts";
-import { projectsArray, ProjectType } from "@/app/projects/projectType";
+import { projectsArray } from "@/app/projects/projectType";
 import ProjectsCard from "../projects-card";
 import { cn } from "@/lib/utils";
 

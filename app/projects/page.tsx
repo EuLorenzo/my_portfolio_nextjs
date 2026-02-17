@@ -1,10 +1,4 @@
-import type { FC } from "react";
-
-interface ProjectsProps {
-  propName: type;
-}
-
-const Projects: FC<ProjectsProps> = ({ propName }) => {
+const Projects = () => {
   return <div></div>;
 };
 

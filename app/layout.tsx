@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { inter } from "./components/fonts";
-import Header from "./components/header-content";
 import { Toaster } from "./components/ui/sonner";
 import FooterContainer from "./components/containers/footer-container";
 import { cn } from "@/lib/utils";

@@ -1,17 +1,14 @@
 "use client";
 
 import { GameQuestion } from "@/app/helpers/game-question";
-import { useMemo, useState, type FC } from "react";
-import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
-import { Label } from "../ui/label";
+import { useMemo, useState } from "react";
+import { RadioGroup } from "../ui/radio-group";
 import { Button } from "../ui/button";
 import { libre_baskerville, shantell_sans } from "../fonts";
-import { cn } from "@/lib/utils"; // (shadcn) se você tiver; se não tiver, eu te passo um fallback
+import { cn } from "@/lib/utils";
 import GameQuestionsCard from "../about/game-questions-card";
 
-interface GameContainerProps {}
-
-const GameContainer: FC<GameContainerProps> = () => {
+const GameContainer = () => {
   const [questionNumber, setQuestionNumber] = useState(0);
   const [selectedOption, setSelectedOption] = useState<string>("");
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
