@@ -10,7 +10,7 @@ const HeaderContainer = () => {
 
   const [floating, setFloating] = useState(false);
 
-  const isFloating = window.innerWidth > 715 && floating;
+  //const isFloating = window.innerWidth > 715 && floating;
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const shouldFloat = latest > 80;
@@ -25,7 +25,7 @@ const HeaderContainer = () => {
           "fixed top-5 w-full max-w-225 m-auto z-50",
           "sm:relative sm:top-0",
           "transition-opacity",
-          isFloating ? "opacity-0" : "opacity-100",
+          //isFloating ? "opacity-0" : "opacity-100",
         )}
       >
         <HeaderContent />
@@ -35,7 +35,7 @@ const HeaderContainer = () => {
 
       <motion.div
         initial={false}
-        animate={isFloating ? "show" : "hide"}
+        //animate={isFloating ? "show" : "hide"}
         variants={{
           show: { y: 0, opacity: 1, pointerEvents: "auto" },
           hide: { y: -20, opacity: 0, pointerEvents: "none" },
