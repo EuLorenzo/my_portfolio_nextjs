@@ -12,14 +12,14 @@ const AboutCard: FC<AboutCardProps> = () => {
       initial="initial"
       whileHover={"hover"}
       className={cn(
-        "justify-center",
-        "sm:justify-between flex flex-row outline outline-black rounded-lg p-5 w-220 mx-5",
+        "bg-green-100 sm:bg-red-100 md: md:bg-blue-100",
+        "flex flex-row justify-between max-w-220 mx-5 outline outline-black gap-5 rounded-lg p-5",
       )}
     >
       <div
         className={cn(
           "hidden",
-          "sm:block sm:w-[200px] rounded-lg overflow-hidden bg-amber-50",
+          "sm:flex max-w-100 justify-center items-center rounded-lg overflow-hidden bg-[#0B0B09]",
         )}
       >
         <Image

@@ -32,7 +32,18 @@ const AboutContainer: FC<AboutContainerProps> = () => {
           ))}
         </div>
 
-        <AboutCard />
+        <div className={cn("sm:hidden w-full")}>
+          <ManualSlider
+            slides={[
+              <AboutCard key="About-card" />,
+              <AboutImageCard key={"About-image"} />,
+            ]}
+          />
+        </div>
+
+        <div className={cn("hidden", "sm:block")}>
+          <AboutCard />
+        </div>
 
         <div className={cn("hidden flex-col justify-around", "lg:flex")}>
           {AboutCuriosities.slice(2, 4).map((curiosity, index) => (

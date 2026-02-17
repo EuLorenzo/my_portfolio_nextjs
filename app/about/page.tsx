@@ -19,9 +19,9 @@ const About: FC<AboutProps> = () => {
     <div className="">
       <motion.div
         className={cn(
-          "mt-10 h-[calc(100vh-275px)] bg-green-100",
-          "mb1:h-[calc(100vh-350px)] mb1:bg-red-100",
-          "sm:mt-0 sm:h-[calc(100vh-112px)] sm:bg-amber-100",
+          "mt-10 h-[calc(100vh-275px)]",
+          "mb1:h-[calc(100vh-350px)]",
+          "sm:mt-0 sm:h-[calc(100vh-112px)]",
           opacity.get() === 0 ? "pointer-events-none" : "pointer-events-auto",
         )}
         style={{
