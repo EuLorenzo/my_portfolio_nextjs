@@ -5,6 +5,7 @@
     --breakpoint-mb1: 600px;
     --breakpoint-sm: 715px;
     --breakpoint-md: 900px;
+    --breakpoint-lg: 1370px;
 }
 
 @theme inline {

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { FC } from "react";
 import { motion } from "framer-motion";
+import { Baskervville } from "next/font/google";
 import { libre_baskerville } from "../fonts";
 import { cn } from "@/lib/utils";
 
@@ -11,9 +12,17 @@ const AboutCard: FC<AboutCardProps> = () => {
     <motion.div
       initial="initial"
       whileHover={"hover"}
-      className={cn("outline outline-black rounded-lg p-5")}
+      className={cn(
+        "flex flex-row justify-center outline outline-black rounded-lg p-5 gap-5 max-w-220 mx-5",
+        "md:justify-between sm:w-full",
+      )}
     >
-      <div className={cn("hidden")}>
+      <div
+        className={cn(
+          "hidden rounded-lg overflow-hidden bg-amber-50",
+          "md:block",
+        )}
+      >
         <Image
           src="/lorenzo/main.jpg"
           alt="Imagem do Lorenzo"
@@ -22,12 +31,16 @@ const AboutCard: FC<AboutCardProps> = () => {
         />
       </div>
 
-      <motion.div className={cn("w-full", "outline rounded-lg px-2 py-5")}>
-        <h1 className={cn(libre_baskerville.className, `text-2xl font-medium`)}>
+      <motion.div
+        className={cn(
+          "outline rounded-lg px-2 py-5 w-100",
+          "sm:w-full",
+          "md:w-100",
+        )}
+      >
+        <h1 className={`${libre_baskerville.className} text-2xl font-medium`}>
           Lorenzo{" "}
-          <span
-            className={cn(libre_baskerville.className, `italic font-light`)}
-          >
+          <span className={`italic font-light ${libre_baskerville.className}`}>
             Frinhani
           </span>
         </h1>

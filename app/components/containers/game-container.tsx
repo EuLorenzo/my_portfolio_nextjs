@@ -44,7 +44,8 @@ const GameContainer: FC<GameContainerProps> = () => {
   return (
     <div
       className={cn(
-        "flex flex-col justify-center mx-5 h-137.5 rounded-2xl border bg-card shadow-sm backdrop-blur p-8",
+        "mx-5",
+        "sm:mx-auto max-w-200 h-137.5 flex flex-col justify-center rounded-2xl border bg-card shadow-sm backdrop-blur p-8",
       )}
     >
       <div className="space-y-2">
