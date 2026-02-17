@@ -6,9 +6,9 @@ import ProjectsContainer from "./components/containers/projects-container";
 import { useSearchParams } from "next/navigation";
 
 export default function Home() {
-  const searchParams = useSearchParams();
+  //const searchParams = useSearchParams();
 
-  useEffect(() => {
+  /*useEffect(() => {
     const hash = window.location.hash.replace("#", "");
 
     if (hash === "contato") {
@@ -19,7 +19,7 @@ export default function Home() {
         }, 100);
       }
     }
-  }, [searchParams]);
+    }, [searchParams]);*/
 
   return (
     <div>
