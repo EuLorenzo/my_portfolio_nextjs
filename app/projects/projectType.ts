@@ -15,7 +15,7 @@ export const projectsArray: ProjectType[] = [
       "Integração API",
       "Pesquisas",
     ],
-    link: "https://miniblog.vercel.app/",
+    link: "https://github.com/EuLorenzo/miniBlog",
   },
   {
     title: "Santander Dev Week 2025",
@@ -48,7 +48,7 @@ export const projectsArray: ProjectType[] = [
       "consumo de APIs externas",
       "React",
     ],
-    link: "https://miniblog.vercel.app/",
+    link: "https://github.com/EuLorenzo/wheaterApp_react",
   },
   {
     title: "Sudoku_java",
@@ -73,7 +73,7 @@ export const projectsArray: ProjectType[] = [
     imagesSrc: ["/projects/computer.png"],
     imagePosition: "right",
     skills: ["HTML", "CSS", "JavaScript"],
-    link: "https://miniblog.vercel.app/",
+    link: "https://github.com/EuLorenzo/nlw-experts",
   },
 ];
 

@@ -19,7 +19,7 @@ const LandPageContainer = () => {
           .
         </h1>
         <h1>
-          <Tooltip imageSrc="/cat_coding.gif" placement="left-start">
+          <Tooltip imageSrc="/gifs/cat_coding.gif" placement="left-start">
             <span className="highlitedSpan">Desenvolvedor Full-Stack</span>
           </Tooltip>{" "}
           e cursando Engenharia de Software.
@@ -27,7 +27,7 @@ const LandPageContainer = () => {
         <h1>
           Também um grande fã de{" "}
           <Tooltip
-            imageSrc="/basketball_guy.gif"
+            imageSrc="/gifs/basketball_guy.gif"
             placement="bottom-start"
             width={250}
           >

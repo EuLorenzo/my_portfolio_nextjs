@@ -40,7 +40,13 @@ export function Tooltip({
           style={{ borderRadius: rounded, width }}
           {...attrs}
         >
-          <Image src={imageSrc} alt={imageAlt} width={width} height={width} />
+          <Image
+            src={imageSrc}
+            alt={imageAlt}
+            width={width}
+            height={width}
+            unoptimized
+          />
         </div>
       )}
     >
