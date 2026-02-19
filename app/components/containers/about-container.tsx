@@ -23,16 +23,7 @@ const AboutContainer = () => {
           />
         </div>
 
-        <div className="md:hidden w-full">
-          <ManualSlider
-            slides={[
-              <AboutCard key={"About-card"} />,
-              <AboutImageCard key="About-image-card" />,
-            ]}
-          />
-        </div>
-
-        <div className={cn("hidden", "md:flex")}>
+        <div className={cn("w-full")}>
           <AboutCard />
         </div>
 
