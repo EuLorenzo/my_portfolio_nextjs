@@ -49,7 +49,11 @@ const FooterContainer = () => {
               <MoveRight />
             </motion.div>
             <a
-              className={cn(libre_baskerville.className, `text-2xl`)}
+              className={cn(
+                libre_baskerville.className,
+                "text-[21px]",
+                `sm:text-2xl`,
+              )}
               href={mailtoLink(email)}
               target="_blank"
             >
@@ -64,8 +68,9 @@ const FooterContainer = () => {
             "sm:flex-row sm:justify-between sm:items-center",
           )}
         >
-          <div className="flex gap-5">
+          <div className={cn("flex flex-col gap-5", "sm:flex-row")}>
             <Button
+              className={cn("w-40", "sm:w-auto")}
               variant={"footer_button"}
               onClick={async () => {
                 await navigator.clipboard.writeText(email);
@@ -74,14 +79,21 @@ const FooterContainer = () => {
             >
               Copiar Email <Copy />
             </Button>
-            <Button variant={"footer_button"} onClick={() => openResume()}>
+            <Button
+              className={cn("w-40", "sm:w-auto")}
+              variant={"footer_button"}
+              onClick={() => openResume()}
+            >
               Currículo <ArrowDownToLine />
             </Button>
             <Link
               href={"https://www.linkedin.com/in/lorenzofrinhani/"}
               target="_blank"
             >
-              <Button variant={"footer_button"}>
+              <Button
+                className={cn("w-40", "sm:w-fit")}
+                variant={"footer_button"}
+              >
                 LinkedIn{" "}
                 <Image
                   src={"/linkedin.png"}
