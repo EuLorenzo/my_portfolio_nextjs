@@ -12,7 +12,7 @@ const HeaderContainer = () => {
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const shouldFloat = latest > 80;
-    const isFloating = shouldFloat && window.innerWidth > 715;
+    const isFloating = shouldFloat && window.innerWidth >= 640;
     setFloating(isFloating);
   });
 
@@ -46,15 +46,12 @@ const HeaderContainer = () => {
           className={cn(
             "mx-auto max-w-225 rounded-full border bg-background/70 backdrop-blur shadow-sm",
             "sm:mx-5",
-            "md:mx-auto",
+            //"md:mx-auto",
           )}
         >
           <div className="h-15 flex items-center justify-center">
             <div
-              className={cn(
-                "flex flex-row justify-between items-center w-225",
-                "md:px-4",
-              )}
+              className={cn("flex flex-row justify-between items-center w-225")}
             >
               <HeaderContent />
             </div>

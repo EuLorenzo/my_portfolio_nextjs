@@ -70,7 +70,7 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ project }) => {
       whileHover="hover"
       className={cn(
         "",
-        "sm:h-112.5 rounded-2xl outline flex flex-row justify-around  p-5",
+        "sm:h-112.5 rounded-2xl outline flex flex-row justify-around p-5",
       )}
     >
       {!isRight && imageContainer}
@@ -81,7 +81,13 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ project }) => {
           "sm:w-1/2 sm:items-start flex flex-col justify-center ",
         )}
       >
-        <h1 className={cn(libre_baskerville.className, `text-3xl font-bold `)}>
+        <h1
+          className={cn(
+            libre_baskerville.className,
+            "text-2xl text-center font-bold",
+            `sm:text-3xl sm:text-left`,
+          )}
+        >
           {project.title}
         </h1>
 
@@ -96,7 +102,7 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ project }) => {
           variants={skillsVariants}
           className={cn(
             "hidden",
-            "sm:flex flex-row mt-5 gap-2 overflow-hidden",
+            "md:flex flex-row mt-5 gap-2 overflow-hidden",
           )}
         >
           <SkillSpan skill={project.skills[0]} />
@@ -121,7 +127,7 @@ const SkillSpan = ({ skill }: { skill: string }) => {
   return (
     <motion.span
       variants={skillVariant}
-      className="bg-Myblue px-4 py-1 rounded-2xl text-white font-light outline"
+      className="flex justify-center items-center text-center bg-Myblue px-4 py-1 rounded-2xl text-white font-light outline"
     >
       {skill}
     </motion.span>

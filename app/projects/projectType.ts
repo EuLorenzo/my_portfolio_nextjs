@@ -22,7 +22,7 @@ export const projectsArray: ProjectType[] = [
     description:
       "API REST em Java criada durante a Santander Dev Week 2025 para praticar Spring Framework, modelando um domínio bancário e preparando o projeto para deploy em uma plataforma PaaS (via Procfile).",
     imagesSrc: ["/projects/java_logo.png"],
-    imagePosition: "right",
+    imagePosition: "left",
     skills: [
       "Java",
       "Spring Framework",
@@ -40,7 +40,7 @@ export const projectsArray: ProjectType[] = [
     description:
       "Aplicativo web de clima construído com React, que consulta uma API de previsão do tempo com base na localização ou cidade digitada pelo usuário.",
     imagesSrc: ["/projects/sun.png"],
-    imagePosition: "left",
+    imagePosition: "right",
     skills: [
       "TypeScript",
       "Hooks",
@@ -55,7 +55,7 @@ export const projectsArray: ProjectType[] = [
     description:
       "Jogo de Sudoku desenvolvido em Java durante o Bootcamp Back-End com Java (Santander 2025), com foco em lógica do jogo, validações de jogadas e prática de Programação Orientada a Objetos.",
     imagesSrc: ["/projects/brain.png"],
-    imagePosition: "left",
+    imagePosition: "right",
     skills: [
       "Java",
       "POO",
@@ -71,7 +71,7 @@ export const projectsArray: ProjectType[] = [
     description:
       "Projeto desenvolvido durante a Next Level Week (Rocketseat), com foco em iniciação no desenvolvimento web usando JavaScript e páginas dinâmicas.",
     imagesSrc: ["/projects/computer.png"],
-    imagePosition: "right",
+    imagePosition: "left",
     skills: ["HTML", "CSS", "JavaScript"],
     link: "https://github.com/EuLorenzo/nlw-experts",
   },

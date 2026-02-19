@@ -10,7 +10,7 @@ interface ProjectsContainerProps {
 
 const ProjectsContainer: FC<ProjectsContainerProps> = ({ howManyItems }) => {
   return (
-    <div className={cn("px-5", "sm:px-0")}>
+    <div className={cn("px-5")}>
       <h1 className={cn(libre_baskerville.className, `mb-3`, "")}>Projetos</h1>
 
       <div className="flex flex-col gap-4">
