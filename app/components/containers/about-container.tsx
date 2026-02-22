@@ -9,9 +9,13 @@ import AboutImageCard from "../about/about-image-card";
 
 const AboutContainer = () => {
   return (
-    <div>
-      <div className="flex flex-row justify-evenly">
-        <div className={cn("hidden", "lg:flex flex-col justify-around")}>
+    <div className={cn("max-w-375 mx-auto")}>
+      <div
+        className={cn(
+          "flex flex-row justify-between overflow-hidden py-1 mx-auto gap-5 px-5",
+        )}
+      >
+        <div className={cn("hidden", "xl:flex flex-col justify-around")}>
           <AboutCuriositiesCard
             imageSrc="/lorenzo/guitar.png"
             content="Eu toco violão há 3 anos."
@@ -23,11 +27,11 @@ const AboutContainer = () => {
           />
         </div>
 
-        <div className={cn("w-full")}>
+        <div className={cn("w-full max-w-220", "md:mx-auto")}>
           <AboutCard />
         </div>
 
-        <div className={cn("hidden", "lg:flex flex-col justify-around")}>
+        <div className={cn("hidden", "xl:flex flex-col justify-around")}>
           <AboutCuriositiesCard
             imageSrc="/lorenzo/gilberto.png"
             content="Meu álbum favorito."

@@ -46,7 +46,7 @@ const HeaderContainer = () => {
           className={cn(
             "mx-auto max-w-225 rounded-full border bg-background/70 backdrop-blur shadow-sm",
             "sm:mx-5",
-            //"md:mx-auto",
+            "md:mx-auto",
           )}
         >
           <div className="h-15 flex items-center justify-center">

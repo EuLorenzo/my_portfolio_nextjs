@@ -9,14 +9,15 @@ const AboutCard = () => {
       initial="initial"
       whileHover={"hover"}
       className={cn(
-        "flex flex-col justify-center outline outline-black rounded-lg p-5 gap-5 max-w-220 mx-5",
-        "md:justify-between sm:w-full",
+        "flex flex-col justify-center outline outline-black rounded-lg p-5 gap-5 max-w-220",
+        "md:justify-between md:flex-row md:m-auto ",
       )}
     >
       <div className="rounded-lg overflow-hidden bg-[#0C0C0A] flex justify-center items-center">
         <div
           className={cn(
-            "max-h-112 max-w-[500px] flex justify-center items-center",
+            "max-h-112 max-w-125 flex justify-center items-center",
+            "md:max-w-100",
           )}
         >
           <Image
