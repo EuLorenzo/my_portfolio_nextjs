@@ -40,13 +40,11 @@ const HeaderContainer = () => {
           hide: { y: -20, opacity: 0, pointerEvents: "none" },
         }}
         transition={{ duration: 0.22 }}
-        className="fixed top-4 left-0 right-0 z-50"
+        className="fixed top-4 left-0 right-0 z-50 px-5"
       >
         <div
           className={cn(
             "mx-auto max-w-225 rounded-full border bg-background/70 backdrop-blur shadow-sm",
-            "sm:mx-5",
-            "md:mx-auto",
           )}
         >
           <div className="h-15 flex items-center justify-center">
