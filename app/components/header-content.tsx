@@ -18,16 +18,11 @@ const HeaderContent = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const router = useRouter();
-  const pathname = usePathname();
 
   const handleContactClick = async () => {
-    if (pathname === "/") {
-      document
-        .getElementById("contato-footer")
-        ?.scrollIntoView({ behavior: "smooth" });
-    } else {
-      router.push("/#contato");
-    }
+    document
+      .getElementById("contato-footer")
+      ?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
