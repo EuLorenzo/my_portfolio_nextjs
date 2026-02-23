@@ -9,13 +9,13 @@ import MobileDialog from "./components/mobile-dialog";
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
+  /*useEffect(() => {
     if (window.innerWidth < 900) {
       setIsOpen(true);
     } else {
       setIsOpen(true);
     }
-  }, []);
+    }, []);*/
 
   return (
     <div>
