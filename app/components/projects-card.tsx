@@ -1,5 +1,3 @@
-"use client";
-
 import type { FC } from "react";
 import { ProjectType } from "../projects/projectType";
 import Image from "next/image";
@@ -13,7 +11,8 @@ interface ProjectsCardProps {
 }
 
 const cardVariants = {
-  initial: {},
+  initial: { opacity: 0 },
+  animate: { x: 0, opacity: 1, transition: { duration: 1 } },
   hover: { backgroundColor: "rgba(0, 0, 0, 0.1)", outlineColor: "black" },
 };
 
@@ -70,7 +69,11 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ project }) => {
     <Link href={project.link} target="_blank">
       <motion.div
         variants={cardVariants}
-        initial="initial"
+        initial={{
+          x: project.imagePosition === "right" ? "5%" : "-5%",
+          opacity: 0,
+        }}
+        animate={"animate"}
         whileHover="hover"
         className={cn(
           "rounded-2xl outline flex flex-row justify-around p-5 cursor-pointer",

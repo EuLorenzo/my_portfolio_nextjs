@@ -3,11 +3,18 @@ import { libre_baskerville } from "../fonts";
 import { projectsArray } from "@/app/projects/projectType";
 import ProjectsCard from "../projects-card";
 import { cn } from "@/lib/utils";
+import { motion } from "motion/react";
 
 interface ProjectsContainerProps {
   page: "land-page" | "projects";
   howManyItems?: number | "full";
 }
+
+const titleAnimation = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  transition: { duration: 1 },
+};
 
 const ProjectsContainer: FC<ProjectsContainerProps> = ({
   page,
@@ -17,7 +24,8 @@ const ProjectsContainer: FC<ProjectsContainerProps> = ({
 
   return (
     <div className={cn("px-5")}>
-      <h1
+      <motion.h1
+        {...titleAnimation}
         className={cn(
           libre_baskerville.className,
           page === "projects" && "h-70 flex items-center justify-center",
@@ -26,7 +34,7 @@ const ProjectsContainer: FC<ProjectsContainerProps> = ({
         )}
       >
         Projetos
-      </h1>
+      </motion.h1>
 
       <div className="flex flex-col gap-4">
         {projectsArray.slice(0, howManyItemsToShow).map((p) => (

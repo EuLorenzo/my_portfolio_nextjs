@@ -2,7 +2,7 @@
 
 import { Button } from "./ui/button";
 import { House, Menu } from "lucide-react";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import HeaderLink from "./header-link";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
@@ -32,17 +32,22 @@ const HeaderContent = () => {
         "sm:mx-0 sm:h-28 sm:outline-none sm:bg-MyPapaya sm:text-black sm:w-full",
       )}
     >
-      <div className="h-4">
+      <div className="h-4 w-1/3">
         <House className="cursor-pointer" onClick={() => router.push("/")} />
       </div>
 
-      <div className={cn("hidden", "sm:flex flex-row gap-6 h-4")}>
+      <div
+        className={cn(
+          "hidden w-1/3 justify-center",
+          "sm:flex flex-row gap-6 h-4",
+        )}
+      >
         {links.map((link) => (
           <HeaderLink key={link.href} href={link.href} label={link.label} />
         ))}
       </div>
 
-      <div>
+      <div className="w-1/3 flex justify-end">
         <Menu
           className={cn("", "sm:hidden")}
           onClick={() => setIsOpen(!isOpen)}

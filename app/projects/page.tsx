@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
-import { libre_baskerville } from "../components/fonts";
+"use client";
+
 import ProjectsContainer from "../components/containers/projects-container";
 
 const Projects = () => {
