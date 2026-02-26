@@ -1,12 +1,11 @@
 import { cn } from "@/lib/utils";
 import { libre_baskerville } from "../components/fonts";
+import ProjectsContainer from "../components/containers/projects-container";
 
 const Projects = () => {
   return (
-    <div>
-      <div className="h-100 flex justify-center items-center w-full">
-        <p className={cn(libre_baskerville.className, "")}>Still working</p>
-      </div>
+    <div className="max-w-225 mx-auto">
+      <ProjectsContainer page="projects" howManyItems={"full"} />
     </div>
   );
 };

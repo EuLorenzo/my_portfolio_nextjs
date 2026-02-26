@@ -1,9 +1,12 @@
+"use client";
+
 import type { FC } from "react";
 import { ProjectType } from "../projects/projectType";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { libre_baskerville } from "./fonts";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 interface ProjectsCardProps {
   project: ProjectType;
@@ -64,57 +67,59 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ project }) => {
   );
 
   return (
-    <motion.div
-      variants={cardVariants}
-      initial="initial"
-      whileHover="hover"
-      className={cn(
-        "",
-        "sm:h-112.5 rounded-2xl outline flex flex-row justify-around p-5",
-      )}
-    >
-      {!isRight && imageContainer}
-
-      <div
+    <Link href={project.link} target="_blank">
+      <motion.div
+        variants={cardVariants}
+        initial="initial"
+        whileHover="hover"
         className={cn(
-          "w-full items-center",
-          "sm:w-1/2 sm:items-start flex flex-col justify-center ",
+          "rounded-2xl outline flex flex-row justify-around p-5 cursor-pointer",
+          "sm:h-112.5",
         )}
       >
-        <h1
+        {!isRight && imageContainer}
+
+        <div
           className={cn(
-            libre_baskerville.className,
-            "text-2xl text-center font-bold",
-            `sm:text-3xl sm:text-left`,
+            "w-full items-center",
+            "sm:w-1/2 sm:items-start flex flex-col justify-center ",
           )}
         >
-          {project.title}
-        </h1>
+          <h1
+            className={cn(
+              libre_baskerville.className,
+              "text-2xl text-center font-bold mb-5",
+              `sm:text-3xl sm:text-left`,
+            )}
+          >
+            {project.title}
+          </h1>
 
-        <motion.p
-          className={cn("hidden", "sm:block")}
-          variants={paragraphVariants}
-        >
-          {project.description}
-        </motion.p>
+          <motion.p
+            className={cn("hidden", "sm:block")}
+            variants={paragraphVariants}
+          >
+            {project.description}
+          </motion.p>
 
-        <motion.div
-          variants={skillsVariants}
-          className={cn(
-            "hidden",
-            "md:flex flex-row mt-5 gap-2 overflow-hidden",
-          )}
-        >
-          <SkillSpan skill={project.skills[0]} />
+          <motion.div
+            variants={skillsVariants}
+            className={cn(
+              "hidden",
+              "md:flex flex-row mt-5 gap-2 overflow-hidden",
+            )}
+          >
+            <SkillSpan skill={project.skills[0]} />
 
-          <SkillSpan skill={project.skills[1]} />
+            <SkillSpan skill={project.skills[1]} />
 
-          <SkillSpan skill={project.skills[2]} />
-        </motion.div>
-      </div>
+            <SkillSpan skill={project.skills[2]} />
+          </motion.div>
+        </div>
 
-      {isRight && imageContainer}
-    </motion.div>
+        {isRight && imageContainer}
+      </motion.div>
+    </Link>
   );
 };
 

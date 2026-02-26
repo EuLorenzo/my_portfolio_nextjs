@@ -55,7 +55,7 @@ export const projectsArray: ProjectType[] = [
     description:
       "Jogo de Sudoku desenvolvido em Java durante o Bootcamp Back-End com Java (Santander 2025), com foco em lógica do jogo, validações de jogadas e prática de Programação Orientada a Objetos.",
     imagesSrc: ["/projects/brain.png"],
-    imagePosition: "right",
+    imagePosition: "left",
     skills: [
       "Java",
       "POO",
@@ -71,7 +71,7 @@ export const projectsArray: ProjectType[] = [
     description:
       "Projeto desenvolvido durante a Next Level Week (Rocketseat), com foco em iniciação no desenvolvimento web usando JavaScript e páginas dinâmicas.",
     imagesSrc: ["/projects/computer.png"],
-    imagePosition: "left",
+    imagePosition: "right",
     skills: ["HTML", "CSS", "JavaScript"],
     link: "https://github.com/EuLorenzo/nlw-experts",
   },

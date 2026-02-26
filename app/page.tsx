@@ -26,7 +26,7 @@ export default function Home() {
         </div>
 
         <div className="mt-20">
-          <ProjectsContainer howManyItems={3} />
+          <ProjectsContainer page="land-page" howManyItems={3} />
         </div>
       </div>
     </div>
