@@ -19,7 +19,7 @@ export const GameQuestion = [
       "Tenho vários projetos focados em React e TypeScript no GitHub.",
   },
   {
-    title: "O que eu curto construir?",
+    question: "O que eu curto construir?",
     options: [
       { label: "Interfaces, apps e produtos", correct: true },
       { label: "Só algoritmos competitivos", correct: false },
@@ -29,7 +29,7 @@ export const GameQuestion = [
       "Gosto de projetos completos com interface e funcionalidade real.",
   },
   {
-    title: "Onde meus projetos aparecem mais?",
+    question: "Onde meus projetos aparecem mais?",
     options: [
       { label: "Web e Mobile", correct: true },
       { label: "Games 3D", correct: false },

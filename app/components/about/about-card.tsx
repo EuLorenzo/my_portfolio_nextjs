@@ -6,7 +6,8 @@ import { cn } from "@/lib/utils";
 const AboutCard = () => {
   return (
     <motion.div
-      initial="initial"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { duration: 1 } }}
       whileHover={"hover"}
       className={cn(
         "flex flex-col justify-center outline outline-black rounded-lg p-5 gap-5 max-w-220",

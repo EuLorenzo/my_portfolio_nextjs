@@ -6,6 +6,8 @@ import { floatingArray } from "../../helpers/framer-floaters";
 import { cn } from "@/lib/utils";
 
 interface AboutCuriositiesCardProps {
+  fadePosition: "right" | "left";
+  delay?: number;
   imageSrc: string;
   content: string;
 }
@@ -20,6 +22,8 @@ const containerVariant = {
 };
 
 const AboutCuriositiesCard: FC<AboutCuriositiesCardProps> = ({
+  fadePosition,
+  delay = 0,
   imageSrc,
   content,
 }) => {
@@ -27,21 +31,26 @@ const AboutCuriositiesCard: FC<AboutCuriositiesCardProps> = ({
 
   return (
     <motion.div
-      initial="initial"
-      whileHover={"hover"}
-      animate={floatVariant.animate}
-      variants={containerVariant}
-      className="flex flex-col items-center max-w-50 min-w-37.5"
+      initial={{ opacity: 0, x: fadePosition === "left" ? "-50%" : "50%" }}
+      animate={{ opacity: 1, x: 0, transition: { duration: 1, delay } }}
     >
-      <div className="max-w-50 min-w-37.5 ">
-        <Image src={imageSrc} alt="Imagem" width={200} height={200} />
-      </div>
-      <motion.p
-        className={cn(shantell_sans.className)}
-        variants={contentVariant}
+      <motion.div
+        initial="initial"
+        whileHover={"hover"}
+        animate={floatVariant.animate}
+        variants={containerVariant}
+        className="flex flex-col items-center max-w-50 min-w-37.5"
       >
-        {content}
-      </motion.p>
+        <div className="max-w-50 min-w-37.5 ">
+          <Image src={imageSrc} alt="Imagem" width={200} height={200} />
+        </div>
+        <motion.p
+          className={cn(shantell_sans.className, "text-center")}
+          variants={contentVariant}
+        >
+          {content}
+        </motion.p>
+      </motion.div>
     </motion.div>
   );
 };

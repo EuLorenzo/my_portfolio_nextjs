@@ -7,6 +7,7 @@ import { Button } from "../ui/button";
 import { libre_baskerville, shantell_sans } from "../fonts";
 import { cn } from "@/lib/utils";
 import GameQuestionsCard from "../about/game-questions-card";
+import { motion } from "motion/react";
 
 const GameContainer = () => {
   const [questionNumber, setQuestionNumber] = useState(0);
@@ -39,7 +40,9 @@ const GameContainer = () => {
   const isLastQuestion = questionNumber >= total - 1;
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { duration: 1 } }}
       className={cn(
         "sm:mx-auto max-w-200 h-137.5 flex flex-col justify-center rounded-2xl border bg-card shadow-sm backdrop-blur p-8",
       )}
@@ -130,7 +133,7 @@ const GameContainer = () => {
               : "Próxima pergunta →"}
         </Button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
