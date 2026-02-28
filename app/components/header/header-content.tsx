@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { House, Menu } from "lucide-react";
 import { useRouter } from "next/navigation";
 import HeaderLink from "./header-link";

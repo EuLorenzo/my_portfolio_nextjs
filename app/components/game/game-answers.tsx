@@ -3,14 +3,14 @@ import { RadioGroupItem } from "../ui/radio-group";
 import { Label } from "../ui/label";
 import { cn } from "@/lib/utils";
 
-interface GameQuestionsCardProps {
+interface GameAnswersProps {
   value: string;
   label: string;
   selected: boolean;
   index: number;
 }
 
-const GameQuestionsCard: FC<GameQuestionsCardProps> = ({
+const GameAnswers: FC<GameAnswersProps> = ({
   value,
   label,
   selected,
@@ -59,4 +59,4 @@ const GameQuestionsCard: FC<GameQuestionsCardProps> = ({
   );
 };
 
-export default GameQuestionsCard;
+export default GameAnswers;

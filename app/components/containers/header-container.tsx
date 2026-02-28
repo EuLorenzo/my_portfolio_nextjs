@@ -3,7 +3,7 @@
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import HeaderContent from "../header-content";
+import HeaderContent from "../header/header-content";
 
 const HeaderContainer = () => {
   const { scrollY } = useScroll();

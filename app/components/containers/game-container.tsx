@@ -1,43 +1,65 @@
 "use client";
 
-import { GameQuestion } from "@/app/helpers/game-question";
-import { useMemo, useState } from "react";
+import { GameQuestions, QuestionType } from "@/app/helpers/game-question";
+import { useEffect, useState } from "react";
 import { RadioGroup } from "../ui/radio-group";
 import { Button } from "../ui/button";
 import { libre_baskerville, shantell_sans } from "../fonts";
 import { cn } from "@/lib/utils";
-import GameQuestionsCard from "../about/game-questions-card";
+import GameQuestionsCard from "../game/game-questions-card";
 import { motion } from "motion/react";
+import GameProgress from "../game/game-progress";
+import { toast } from "sonner";
 
 const GameContainer = () => {
+  const [questions, setQuestions] = useState<QuestionType[]>(GameQuestions);
+
   const [questionNumber, setQuestionNumber] = useState(0);
+
   const [selectedOption, setSelectedOption] = useState<string>("");
-  const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
 
-  const question = GameQuestion[questionNumber];
-  const total = GameQuestion.length;
+  const [seeResult, setSeeResult] = useState(false);
 
-  const progress = useMemo(() => {
-    return Math.round(((questionNumber + 1) / total) * 100);
-  }, [questionNumber, total]);
+  const isLastQuestion = questionNumber === questions.length - 1;
+  const isCorrect = questions[questionNumber]?.isCorrect;
 
   const verifyAnswer = () => {
-    // se já mostrou feedback, avança
-    if (isCorrect !== null) {
-      setQuestionNumber((prev) => prev + 1);
-      setSelectedOption("");
-      setIsCorrect(null);
+    if (!seeResult) {
+      if (selectedOption === "") {
+        toast.error("Selecione uma opção");
+        return;
+      }
+
+      const correctAnswer = questions[questionNumber].options.find(
+        (opt) => opt.correct === true,
+      );
+
+      const isCorrect = selectedOption === correctAnswer?.label;
+
+      setQuestions((prev) => {
+        const array = [...prev];
+        array[questionNumber] = { ...array[questionNumber], isCorrect };
+        return array;
+      });
+
+      setSeeResult(true);
       return;
     }
 
-    const selectedOptionObj = question.options.find(
-      (option) => option.label === selectedOption,
-    );
+    if (isLastQuestion) {
+      setQuestionNumber(0);
+      setSeeResult(false);
+      setSelectedOption("");
+      return;
+    }
 
-    setIsCorrect(selectedOptionObj?.correct === true);
+    setSeeResult(false);
+    setQuestionNumber((prev) => prev + 1);
   };
 
-  const isLastQuestion = questionNumber >= total - 1;
+  const handleSelectedOptionChange = (value: string) => {
+    setSelectedOption(value);
+  };
 
   return (
     <motion.div
@@ -57,65 +79,28 @@ const GameContainer = () => {
           Quiz rápido!
         </h1>
 
-        <div className="flex items-center justify-between text-sm text-muted-foreground">
-          <span>
-            Pergunta {questionNumber + 1} de {total}
-          </span>
-          <span>{progress}%</span>
-        </div>
-
-        <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
-          <div
-            className="h-full rounded-full bg-Myblue transition-all"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
+        <GameProgress questionNumber={questionNumber} />
       </div>
 
-      {/* Body */}
       <div className="mt-6">
-        {isCorrect !== null ? (
+        {seeResult && (
           <div className="rounded-xl border p-5 text-center">
             <p className={cn(shantell_sans.className, "text-lg")}>
               {isCorrect ? "Acertouuu! 🎉" : "Erroooouu! 😅"}
             </p>
             <p className="mt-2 text-sm text-muted-foreground">
-              {isCorrect
-                ? "Boa! Você mandou bem."
-                : "Sem problemas — próxima você acerta."}
+              {questions[questionNumber].explanation}
             </p>
           </div>
-        ) : (
-          <>
-            {/* Question */}
-            <p className="flex items-center gap-3 text-base md:text-lg">
-              <span
-                className={cn(
-                  shantell_sans.className,
-                  "text-white bg-Myblue rounded-full w-8 h-8 flex items-center justify-center shrink-0",
-                )}
-              >
-                {questionNumber + 1}
-              </span>
-              <span className="font-semibold">{question.question}</span>
-            </p>
+        )}
 
-            {/* Options */}
-            <RadioGroup
-              className="mt-6 grid gap-3"
-              value={selectedOption}
-              onValueChange={setSelectedOption}
-            >
-              {question.options.map((opt, idx) => (
-                <GameQuestionsCard
-                  key={opt.label}
-                  value={opt.label}
-                  label={opt.label}
-                  selected={selectedOption === opt.label}
-                  index={idx}
-                />
-              ))}
-            </RadioGroup>
+        {!seeResult && (
+          <>
+            <GameQuestionsCard
+              question={questions[questionNumber]}
+              selectedOption={selectedOption}
+              setSelectedOption={handleSelectedOptionChange}
+            />
           </>
         )}
       </div>
@@ -124,13 +109,12 @@ const GameContainer = () => {
         <Button
           className="bg-Myblue text-white w-full md:w-64"
           onClick={verifyAnswer}
-          disabled={isCorrect === null && !selectedOption}
         >
-          {isCorrect === null
-            ? "Verificar resposta"
-            : isLastQuestion
-              ? "Ver resultado"
-              : "Próxima pergunta →"}
+          {isLastQuestion && seeResult
+            ? "Tentar novamente!"
+            : seeResult
+              ? "Próxima"
+              : "Verificar"}
         </Button>
       </div>
     </motion.div>
