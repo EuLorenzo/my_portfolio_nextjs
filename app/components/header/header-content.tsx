@@ -29,7 +29,7 @@ const HeaderContent = () => {
     <div
       className={cn(
         "max-w-225 px-5 h-15 bg-Mydark-blue outline mx-5 text-white flex flex-row justify-between items-center rounded-full",
-        "sm:mx-0 sm:h-28 sm:outline-none sm:bg-MyPapaya sm:text-black sm:w-full",
+        "sm:mx-0 sm:h-28 sm:outline-none sm:bg-transparent sm:text-black sm:w-full",
       )}
     >
       <div className="h-4 w-1/3">

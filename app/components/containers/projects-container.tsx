@@ -41,6 +41,16 @@ const ProjectsContainer: FC<ProjectsContainerProps> = ({
           <ProjectsCard key={p.title} project={p} />
         ))}
       </div>
+
+      {page === "land-page" && (
+        <div className="w-full bg-Myblue mt-4 rounded-full p-2">
+          <p
+            className={cn(libre_baskerville.className, "text-sm text-MyPapaya")}
+          >
+            Ver todos projetos
+          </p>
+        </div>
+      )}
     </div>
   );
 };
