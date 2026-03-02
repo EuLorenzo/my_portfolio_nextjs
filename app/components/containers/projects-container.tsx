@@ -4,6 +4,8 @@ import { projectsArray } from "@/app/projects/projectType";
 import ProjectsCard from "../projects-card";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
+import { MoveRight } from "lucide-react";
+import Link from "next/link";
 
 interface ProjectsContainerProps {
   page: "land-page" | "projects";
@@ -43,13 +45,33 @@ const ProjectsContainer: FC<ProjectsContainerProps> = ({
       </div>
 
       {page === "land-page" && (
-        <div className="w-full bg-Myblue mt-4 rounded-full p-2">
-          <p
-            className={cn(libre_baskerville.className, "text-sm text-MyPapaya")}
+        <Link href={"/projects"}>
+          <motion.div
+            className={cn(
+              "mt-4 bg-Mydark-blue outline text-white rounded-full flex flex-row items-center p-3 overflow-hidden gap-2 cursor-pointer hover:bg-Mydark-blue/95 transition-colors",
+            )}
+            initial="initial"
+            whileHover={"hover"}
           >
-            Ver todos projetos
-          </p>
-        </div>
+            <motion.div
+              variants={{
+                initial: { opacity: 1, width: 1, x: -45 },
+                hover: {
+                  width: "auto",
+                  opacity: 1,
+                  x: 0,
+                  transition: { duration: 0.5 },
+                },
+              }}
+            >
+              <MoveRight />
+            </motion.div>
+
+            <p className={cn(libre_baskerville.className, "text-sm")}>
+              Ver todos projetos
+            </p>
+          </motion.div>
+        </Link>
       )}
     </div>
   );
