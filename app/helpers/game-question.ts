@@ -1,4 +1,5 @@
 export type QuestionType = {
+  id: number;
   question: string;
   options: {
     label: string;
@@ -10,6 +11,7 @@ export type QuestionType = {
 
 export const GameQuestions: QuestionType[] = [
   {
+    id: 1,
     question: "Qual é minha stack mais forte hoje?",
     options: [
       { label: "Angular + C#", correct: false },
@@ -21,6 +23,7 @@ export const GameQuestions: QuestionType[] = [
     isCorrect: null,
   },
   {
+    id: 2,
     question: "O que eu curto construir?",
     options: [
       { label: "Só algoritmos competitivos", correct: false },
@@ -32,6 +35,7 @@ export const GameQuestions: QuestionType[] = [
     isCorrect: null,
   },
   {
+    id: 3,
     question: "Onde meus projetos aparecem mais?",
     options: [
       { label: "Games 3D", correct: false },
